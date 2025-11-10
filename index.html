@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Focus Timer</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="black-theme">
+  <!-- Settings -->
+  <div class="settings">
+    <button id="settingsBtn">⚙️</button>
+    <div class="theme-options" id="themeMenu">
+      <button onclick="changeTheme('black')">Black</button>
+      <button onclick="changeTheme('green')">Green</button>
+      <button onclick="changeTheme('purple')">Purple</button>
+    </div>
+  </div>
+
+  <!-- Main Container -->
+  <div class="container">
+    <!-- Timer Section -->
+    <div class="timer-section">
+      <h1>Focus Timer ⏱️</h1>
+
+      <div class="time-options">
+        <button onclick="setTimer(15)">15 min</button>
+        <button onclick="setTimer(30)">30 min</button>
+        <button onclick="setTimer(45)">45 min</button>
+        <button onclick="setTimer(60)">1 hour</button>
+      </div>
+
+      <div class="timer" id="timer">25:00</div>
+
+      <div class="controls">
+        <button onclick="startTimer()">Start</button>
+        <button onclick="pauseTimer()">Pause</button>
+        <button id="resetBtn" onclick="resetTimer()">Reset</button>
+      </div>
+
+      <footer>
+        Made with ❤️ by Swathi
+      </footer>
+    </div>
+
+    <!-- Purpose & Motivation Section -->
+    <div class="purpose-section">
+      <h2>Your Purpose 🎯</h2>
+      <textarea id="purposeInput" placeholder="Why are you starting this timer?"></textarea>
+      <p id="motivationMessage"></p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
