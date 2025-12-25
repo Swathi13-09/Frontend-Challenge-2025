@@ -1,75 +1,39 @@
-const addBtn = document.getElementById("addBtn");
-const subjectInput = document.getElementById("subjectInput");
-const dashboard = document.getElementById("dashboard");
-const quote = document.getElementById("quote");
+let startTime;
+let totalDistraction = 0;
+let sessions = 0;
+let timerInterval;
 
-let studyData = JSON.parse(localStorage.getItem("studyData")) || [];
+function startDistraction() {
+  startTime = Date.now();
+  document.getElementById("message").textContent =
+    "⏳ Distraction tracking started";
 
-const quotes = [
-  "Discipline is stronger than motivation.",
-  "Small progress is still progress.",
-  "Consistency beats intensity.",
-  "Focus today, succeed tomorrow.",
-  "Your future depends on what you do now."
-];
-
-// Load existing data
-window.onload = () => {
-  renderSubjects();
-  changeQuote();
-};
-
-// Add subject
-addBtn.addEventListener("click", () => {
-  const subject = subjectInput.value.trim();
-  if (subject === "") {
-    alert("Please enter a subject name");
-    return;
-  }
-
-  studyData.push({ name: subject, progress: 0 });
-  localStorage.setItem("studyData", JSON.stringify(studyData));
-  subjectInput.value = "";
-  renderSubjects();
-});
-
-// Render subjects
-function renderSubjects() {
-  dashboard.innerHTML = "";
-
-  studyData.forEach((item, index) => {
-    const div = document.createElement("div");
-    div.className = "study-item";
-
-    div.innerHTML = `
-      <span>${item.name} – ${item.progress}%</span>
-      <div class="progress-bar">
-        <div class="progress" style="width:${item.progress}%"></div>
-      </div>
-      <button onclick="increaseProgress(${index})">+10%</button>
-    `;
-
-    dashboard.appendChild(div);
-  });
+  timerInterval = setInterval(updateTimer, 1000);
 }
 
-// Increase progress
-function increaseProgress(index) {
-  if (studyData[index].progress < 100) {
-    studyData[index].progress += 10;
-    if (studyData[index].progress > 100) {
-      studyData[index].progress = 100;
-    }
-    localStorage.setItem("studyData", JSON.stringify(studyData));
-    renderSubjects();
-  } else {
-    alert("Goal already completed! 🎉");
-  }
+function updateTimer() {
+  let seconds = Math.floor((Date.now() - startTime) / 1000);
+  let min = Math.floor(seconds / 60);
+  let sec = seconds % 60;
+
+  document.getElementById("timer").textContent =
+    `${min.toString().padStart(2, '0')}:${sec.toString().padStart(2, '0')}`;
 }
 
-// Motivation quote
-function changeQuote() {
-  const random = Math.floor(Math.random() * quotes.length);
-  quote.textContent = quotes[random];
-  setTimeout(changeQuote, 7000);
+function stopDistraction() {
+  clearInterval(timerInterval);
+
+  let duration = Math.floor((Date.now() - startTime) / 1000);
+  totalDistraction += duration;
+  sessions++;
+
+  document.getElementById("message").textContent =
+    `⚠ You were distracted for ${Math.floor(duration / 60)} minutes`;
+
+  updateSummary();
+}
+
+function updateSummary() {
+  document.getElementById("summary").textContent =
+    `Total distraction: ${Math.floor(totalDistraction / 60)} minutes | Sessions: ${sessions}`;
 }

@@ -2,39 +2,31 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Smart Study Tracker</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Distraction Awareness Tool</title>
   <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-  <header>
-    <h1>Smart Study Tracker</h1>
-    <p class="tagline">Track progress. Build discipline.</p>
-  </header>
 
-  <main>
-    <!-- Input Section -->
-    <section class="input-section">
-      <input type="text" id="subjectInput" placeholder="Enter subject name">
-      <button id="addBtn">Add Subject</button>
-    </section>
+  <h1>Distraction Awareness Tool</h1>
 
-    <!-- Progress Section -->
-    <section class="study-list">
-      <h2>Your Study Progress</h2>
-      <div id="dashboard"></div>
-    </section>
+  <p id="timer">00:00</p>
 
-    <!-- Motivation -->
-    <section class="motivation">
-      <p id="quote">Stay consistent. Success follows.</p>
-    </section>
-  </main>
+  <label>Reason for Distraction:</label>
+  <select id="reason">
+    <option>Social Media</option>
+    <option>YouTube</option>
+    <option>Chatting</option>
+    <option>Browsing</option>
+  </select>
 
-  <footer>
-    <p>Made with ❤️ by Swathi</p>
-  </footer>
+  <div>
+    <button onclick="startDistraction()">Start</button>
+    <button onclick="stopDistraction()">Stop</button>
+  </div>
+  <p id="message"></p>
+
+  <h3>Today's Summary</h3>
+  <p id="summary">No data yet</p>
 
   <script src="script.js"></script>
 </body>
