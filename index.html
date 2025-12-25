@@ -2,54 +2,39 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <title>Smart Study Tracker</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Focus Timer</title>
   <link rel="stylesheet" href="style.css">
 </head>
-<body class="black-theme">
-  <!-- Settings -->
-  <div class="settings">
-    <button id="settingsBtn">⚙️</button>
-    <div class="theme-options" id="themeMenu">
-      <button onclick="changeTheme('black')">Black</button>
-      <button onclick="changeTheme('green')">Green</button>
-      <button onclick="changeTheme('purple')">Purple</button>
-    </div>
-  </div>
 
-  <!-- Main Container -->
-  <div class="container">
-    <!-- Timer Section -->
-    <div class="timer-section">
-      <h1>Focus Timer ⏱️</h1>
+<body>
+  <header>
+    <h1>Smart Study Tracker</h1>
+    <p class="tagline">Track progress. Build discipline.</p>
+  </header>
 
-      <div class="time-options">
-        <button onclick="setTimer(15)">15 min</button>
-        <button onclick="setTimer(30)">30 min</button>
-        <button onclick="setTimer(45)">45 min</button>
-        <button onclick="setTimer(60)">1 hour</button>
-      </div>
+  <main>
+    <!-- Input Section -->
+    <section class="input-section">
+      <input type="text" id="subjectInput" placeholder="Enter subject name">
+      <button id="addBtn">Add Subject</button>
+    </section>
 
-      <div class="timer" id="timer">25:00</div>
+    <!-- Progress Section -->
+    <section class="study-list">
+      <h2>Your Study Progress</h2>
+      <div id="dashboard"></div>
+    </section>
 
-      <div class="controls">
-        <button onclick="startTimer()">Start</button>
-        <button onclick="pauseTimer()">Pause</button>
-        <button id="resetBtn" onclick="resetTimer()">Reset</button>
-      </div>
+    <!-- Motivation -->
+    <section class="motivation">
+      <p id="quote">Stay consistent. Success follows.</p>
+    </section>
+  </main>
 
-      <footer>
-        Made with ❤️ by Swathi
-      </footer>
-    </div>
-
-    <!-- Purpose & Motivation Section -->
-    <div class="purpose-section">
-      <h2>Your Purpose 🎯</h2>
-      <textarea id="purposeInput" placeholder="Why are you starting this timer?"></textarea>
-      <p id="motivationMessage"></p>
-    </div>
-  </div>
+  <footer>
+    <p>Made with ❤️ by Swathi</p>
+  </footer>
 
   <script src="script.js"></script>
 </body>
