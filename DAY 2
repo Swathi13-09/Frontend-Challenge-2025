@@ -1,0 +1,63 @@
+*Day 2 Learning Focus
+
+DOM Manipulation
+
+Dynamic UI Updates using JavaScript
+
+Working with Lists & Progress Bars
+
+Beginner-level State Management
+
+1️⃣ Problem Identified
+
+Students often lose track of their daily study progress and fail to monitor subject-wise preparation, leading to poor time management and stress.
+
+2️⃣ Solution Implemented
+
+A Smart Study Tracker Dashboard that allows users to:
+
+Add study subjects
+
+Track progress visually
+
+Stay motivated through progress feedback
+
+3️⃣ Key Functionalities
+
+Input subject name
+
+Display subject list dynamically
+
+Update study progress using buttons
+
+Visual progress indicator using progress bars
+
+Minimal UI with Black & Red theme
+
+Technologies Used
+
+HTML – Page structure
+
+CSS – Styling and theme (Black + Red)
+
+JavaScript – Logic, DOM updates, progress handling
+
+5️⃣ Skills Learned
+
+Accessing elements using getElementById
+
+Creating elements dynamically using createElement
+
+Updating UI based on user actions
+
+Using arrays to store data
+
+Real-Time Use Case
+
+Useful for students preparing for:
+
+Exams
+
+Certifications
+
+Daily study planning
